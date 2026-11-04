@@ -30,7 +30,7 @@ python -m venv venv
 ```
 
 > Si PowerShell dice que la ejecución de scripts está deshabilitada, ejecutar
-> `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned` y vuelve a activar.
+> `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned` y volver a activar.
 
 ### Paso 3: instalar, crear la base de datos y ejecutar (igual en Linux y Windows)
 
