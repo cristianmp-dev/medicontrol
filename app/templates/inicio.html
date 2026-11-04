@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block contenido %}
+<h1 class="h3 mb-4">Panel de MediControl</h1>
+
+<div class="row g-3 mb-4">
+    <div class="col-md-4">
+        <div class="card text-bg-success"><div class="card-body">
+            <div class="fs-2 fw-bold">{{ total_medicos }}</div>Médicos
+        </div></div>
+    </div>
+    <div class="col-md-4">
+        <div class="card text-bg-info"><div class="card-body">
+            <div class="fs-2 fw-bold">{{ total_pacientes }}</div>Pacientes
+        </div></div>
+    </div>
+    <div class="col-md-4">
+        <div class="card text-bg-warning"><div class="card-body">
+            <div class="fs-2 fw-bold">{{ citas|length }}</div>Citas
+        </div></div>
+    </div>
+</div>
+
+<h2 class="h5">Próximas citas</h2>
+<table class="table table-striped bg-white shadow-sm">
+    <thead class="table-success"><tr><th>Fecha</th><th>Hora</th><th>Médico</th><th>Paciente</th></tr></thead>
+    <tbody>
+    {% for c in citas %}
+        <tr>
+            <td>{{ c.fecha.strftime('%d/%m/%Y') }}</td>
+            <td>{{ c.hora.strftime('%H:%M') }}</td>
+            <td>{{ c.medico.nombre }}</td>
+            <td>{{ c.paciente.nombre }}</td>
+        </tr>
+    {% else %}
+        <tr><td colspan="4" class="text-muted">No hay citas registradas.</td></tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
